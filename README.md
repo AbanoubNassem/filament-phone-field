@@ -20,31 +20,52 @@ You can publish the config file with:
 php artisan vendor:publish --tag="filament-phone-field-config"
 ```
 
-This is the [Contents](config/filament-phone-field.php) of the published config file.
+This is the [Content](config/filament-phone-field.php) of the published config file. Check it for more understanding of how the plugin works.
+
+All the configurations , can be overridden by chaining the `PhoneInput` field.
 
 ## Usage
 
 ```php
-$filamentPhoneField = new AbanoubNassem\FilamentPhoneField();
-echo $filamentPhoneField->echoPhrase('Hello, AbanoubNassem!');
+use AbanoubNassem\FilamentPhoneField\Forms\Components\PhoneInput;
+
+// admin panel
+    public static function form(Form $form): Form
+    {
+        return $form->schema([
+                    ...
+                    PhoneInput::make('phone')
+                    // make sure to set Initial Country to null, in the admin panel
+                    // especially if you have multiple records of phone numbers from 
+                    // multiple different countries.
+                    ->initialCountry(null)
+                    ->tel()
+                ]);
+     }
+
+//frontend-forms 
+    protected function getFormSchema(): array
+    {
+        return [
+            ....
+             PhoneInput::make('phone')
+             ->tel()
+        ];
+    }
 ```
 
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security Vulnerabilities
 
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+If you discover any security related issues, please create an issue.
 
 ## Credits
 
 - [Abanoub Nassem](https://github.com/AbanoubNassem)
-- [All Contributors](../../contributors)
 
 ## License
 
