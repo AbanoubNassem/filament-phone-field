@@ -1,0 +1,75 @@
+{
+    "name": "abanoubnassem/filament-phone-field",
+    "description": "Provides a Phone Input field for the Filament Forms, works in Admin-Panel and Forntend-Forms",
+    "keywords": [
+        "AbanoubNassem",
+        "laravel",
+        "filament-phone-field",
+        "International Telephone Input",
+        "intl-tel-input"
+    ],
+    "homepage": "https://github.com/abanoubnassem/filament-phone-field",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Abanoub Nassem",
+            "email": "abanoubnassemmousa@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0|^8.1",
+        "filament/forms": "^2.16",
+        "illuminate/contracts": "^9.0",
+        "spatie/laravel-package-tools": "^1.13.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.0",
+        "nunomaduro/collision": "^6.0",
+        "nunomaduro/larastan": "^2.0.1",
+        "orchestra/testbench": "^7.0",
+        "pestphp/pest": "^1.21",
+        "pestphp/pest-plugin-laravel": "^1.1",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "AbanoubNassem\\FilamentPhoneField\\": "src",
+            "AbanoubNassem\\FilamentPhoneField\\Database\\Factories\\": "database/factories"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AbanoubNassem\\FilamentPhoneField\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AbanoubNassem\\FilamentPhoneField\\FilamentPhoneFieldServiceProvider"
+            ],
+            "aliases": {
+                "FilamentPhoneField": "AbanoubNassem\\FilamentPhoneField\\Facades\\FilamentPhoneField"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
