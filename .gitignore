@@ -1,5 +1,6 @@
 .idea
 .phpunit.result.cache
+.phpdoc
 build
 composer.lock
 coverage
