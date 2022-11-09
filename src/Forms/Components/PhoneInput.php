@@ -209,13 +209,13 @@ class PhoneInput extends TextInput
      * @default 'h-full w-full'
      *
      * @param  string|null  $customContainer
-     * @return string|null
+     * @return $this
      */
-    public function customContainer(?string $customContainer = 'h-full w-full'): ?string
+    public function customContainer(?string $customContainer = 'h-full w-full'): static
     {
         $this->customContainer = $customContainer;
 
-        return $this->customContainer;
+        return $this;
     }
 
     /**
@@ -331,13 +331,13 @@ class PhoneInput extends TextInput
      * @default ''
      *
      * @param  string|null  $hiddenInput
-     * @return string|null
+     * @return $this
      */
-    public function hiddenInput(?string $hiddenInput = ''): ?string
+    public function hiddenInput(?string $hiddenInput = ''): static
     {
         $this->hiddenInput = $hiddenInput;
 
-        return $this->hiddenInput;
+        return $this;
     }
 
     /**
@@ -346,13 +346,13 @@ class PhoneInput extends TextInput
      * @default []
      *
      * @param  array  $localizedCountries
-     * @return array
+     * @return $this
      */
-    public function localizedCountries(array $localizedCountries = []): array
+    public function localizedCountries(array $localizedCountries = []): static
     {
         $this->localizedCountries = $localizedCountries;
 
-        return $this->localizedCountries;
+        return $this;
     }
 
     /**
@@ -362,13 +362,13 @@ class PhoneInput extends TextInput
      * @default false
      *
      * @param  bool  $nationalMode
-     * @return bool
+     * @return $this
      */
-    public function nationalMode(bool $nationalMode = false): bool
+    public function nationalMode(bool $nationalMode = false): static
     {
         $this->nationalMode = $nationalMode;
 
-        return $this->nationalMode;
+        return $this;
     }
 
     /**
