@@ -374,12 +374,12 @@ class PhoneInput extends TextInput
      * dial code separated.
      * @default false
      * @param bool $separateDialCode
-     * @return bool
+     * @return $this
      */
-    public function separateDialCode(bool $separateDialCode = false): bool
+    public function separateDialCode(bool $separateDialCode = false): static
     {
         $this->separateDialCode = $separateDialCode;
-        return $separateDialCode;
+        return $this;
     }
 
     public function getConfigurations(): array
