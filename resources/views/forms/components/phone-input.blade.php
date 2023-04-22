@@ -18,64 +18,45 @@
 @endonce
 
 <script>
+    window.initPhoneField = function (statePath) {
+        const input = document.querySelector(`[wire\\:model\\.defer="${statePath}"]`);
+        const config = @js($getConfigurations());
 
-    document.addEventListener('livewire:load', function () {
-        Livewire.hook('element.updated', (el, _) => {
-            if (el.id === '{{$getStatePath()}}') {
-                window.init{{str_replace('.','', $getStatePath())}}Field();
-            }
-        })
-
-        window.init{{str_replace('.','', $getStatePath())}}Field = function () {
-            const input = document.querySelector('[wire\\:model\\.defer="{{$getStatePath()}}"]');
-            const config = @js($getConfigurations());
-
-            const intl = intlTelInput(input, {
-                ...config,
-                utilsScript: '{{$getIntlTelInputUtils()}}',
-                customPlaceholder: config.customPlaceholder != null ? (_, __) => config.customPlaceholder : null,
-                geoIpLookup: config.geoIpLookup === "ipinfo" ? function (success, _) {
-                    const countryCode = localStorage.getItem('phone-input-country-code');
-                    const lastCheck = localStorage.getItem('phone-input-last-check');
+        const intl = intlTelInput(input, {
+            ...config,
+            utilsScript: '{{$getIntlTelInputUtils()}}',
+            customPlaceholder: config.customPlaceholder != null ? (_, __) => config.customPlaceholder : null,
+            geoIpLookup: config.geoIpLookup === "ipinfo" ? function (success, _) {
+                const countryCode = localStorage.getItem('phone-input-country-code');
+                const lastCheck = localStorage.getItem('phone-input-last-check');
 
 
-                    if (lastCheck === null || new Date() >= new Date(lastCheck)) {
-                        fetch("https://ipinfo.io/json")
-                            .then((res) => res.json())
-                            .then((data) => data)
-                            .then((data) => {
-                                const countryCode = data.country;
-                                const newDate = new Date();
-                                localStorage.setItem('phone-input-last-check', (new Date(newDate.setSeconds(newDate.getSeconds() + {{$getCachedGeoIpSeconds()}}))).toString());
-                                localStorage.setItem('phone-input-country-code', countryCode);
-                                success(country);
-                            })
-                            .catch((_) => success(localStorage.getItem('phone-input-country-code')));
-                    } else {
-                        success(countryCode);
-                    }
-                } : config.geoIpLookup,
-            });
+                if (lastCheck === null || new Date() >= new Date(lastCheck)) {
+                    fetch("https://ipinfo.io/json")
+                        .then((res) => res.json())
+                        .then((data) => data)
+                        .then((data) => {
+                            const countryCode = data.country;
+                            const newDate = new Date();
+                            localStorage.setItem('phone-input-last-check', (new Date(newDate.setSeconds(newDate.getSeconds() + {{$getCachedGeoIpSeconds()}}))).toString());
+                            localStorage.setItem('phone-input-country-code', countryCode);
+                            success(country);
+                        })
+                        .catch((_) => success(localStorage.getItem('phone-input-country-code')));
+                } else {
+                    success(countryCode);
+                }
+            } : config.geoIpLookup,
+        });
 
-            if (config.initialCountry === 'auto') {
-                intl.setCountry(localStorage.getItem('phone-input-country-code'));
-            }
-
+        if (config.initialCountry === 'auto') {
+            intl.setCountry(localStorage.getItem('phone-input-country-code'));
         }
-        window.init{{str_replace('.','', $getStatePath())}}Field();
-    });
+
+    }
+
 </script>
 
-
-@php
-    $datalistOptions = $getDatalistOptions();
-
-    $affixLabelClasses = [
-        'whitespace-nowrap group-focus-within:text-primary-500',
-        'text-gray-400' => ! $errors->has($getStatePath()),
-        'text-danger-400' => $errors->has($getStatePath()),
-    ];
-@endphp
 
 <x-dynamic-component
     :component="$getFieldWrapperView()"
@@ -89,6 +70,8 @@
     :hint-icon="$getHintIcon()"
     :required="$isRequired()"
     :state-path="$getStatePath()"
+    x-init="initPhoneField('{{$getStatePath()}}')"
+    x-effect="initPhoneField('{{$getStatePath()}}')"
 >
     <div {{ $attributes->merge($getExtraAttributes())->class(['filament-phone-input-field-component flex items-center space-x-2 rtl:space-x-reverse group']) }}>
         @if (($prefixAction = $getPrefixAction()) && (! $prefixAction->isHidden()))
@@ -129,7 +112,6 @@
             {!! $isDisabled() ? 'disabled' : null !!}
             id="{{ $getId() }}"
             {!! ($inputMode = $getInputMode()) ? "inputmode=\"{$inputMode}\"" : null !!}
-            {!! $datalistOptions ? "list=\"{$getId()}-list\"" : null !!}
             {!! ($placeholder = $getPlaceholder()) ? "placeholder=\"{$placeholder}\"" : null !!}
             {!! ($interval = $getStep()) ? "step=\"{$interval}\"" : null !!}
             @if (! $isConcealed())
@@ -167,11 +149,4 @@
         @endif
     </div>
 
-    @if ($datalistOptions)
-        <datalist id="{{ $getId() }}-list">
-            @foreach ($datalistOptions as $option)
-                <option value="{{ $option }}"/>
-            @endforeach
-        </datalist>
-    @endif
 </x-dynamic-component>
