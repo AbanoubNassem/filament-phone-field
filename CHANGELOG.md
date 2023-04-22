@@ -2,6 +2,10 @@
 
 All notable changes to `filament-phone-field` will be documented in this file.
 
+## v0.0.4 - 2023-04-22
+
+- fixes issue with reactivity , solves #8 , #7
+
 ## v0.0.3 - 2023-02-26
 
 ### What's Changed
