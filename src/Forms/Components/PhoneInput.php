@@ -78,7 +78,6 @@ class PhoneInput extends TextInput
     /**
      * A CDN/URL to the intlTelInput css.
      *
-     * @param $intlTelInputCss
      * @return $this
      */
     public function intlTelInputCss($intlTelInputCss): static
@@ -96,7 +95,6 @@ class PhoneInput extends TextInput
     /**
      * A CDN/URL to the intlTelInput script.
      *
-     * @param $intlTelInputScript
      * @return $this
      */
     public function intlTelInputScript($intlTelInputScript): static
@@ -114,7 +112,6 @@ class PhoneInput extends TextInput
     /**
      * A CDN/URL to the intlTelInput utils.
      *
-     * @param $intlTelInputUtils
      * @return $this
      */
     public function intlTelInputUtils($intlTelInputUtils): static
@@ -135,7 +132,6 @@ class PhoneInput extends TextInput
      *
      * @default true
      *
-     * @param bool $allow
      * @return $this
      */
     public function allowDropdown(bool $allow = true): static
@@ -151,7 +147,6 @@ class PhoneInput extends TextInput
      *
      * @default false
      *
-     * @param bool $autoHideDialCode
      * @return $this
      */
     public function autoHideDialCode(bool $autoHideDialCode = false): static
@@ -169,7 +164,7 @@ class PhoneInput extends TextInput
      *
      * @default 'polite'
      *
-     * @param string $autoPlaceholder
+     * @param  string  $autoPlaceholder
      * @return $this
      */
     public function autoPlaceholder(#[ExpectedValues(['off', 'polite', 'aggressive'])] string $autoPlaceholder): static
@@ -184,7 +179,6 @@ class PhoneInput extends TextInput
      *
      * @default null
      *
-     * @param string|null $customPlaceholder
      * @return $this
      */
     public function customPlaceholder(?string $customPlaceholder): static
@@ -194,9 +188,6 @@ class PhoneInput extends TextInput
         return $this;
     }
 
-    /**
-     * @param Closure|string|null $placeholder
-     */
     public function setPlaceholder(Closure|string|null $placeholder): void
     {
         $this->placeholder = $placeholder;
@@ -208,7 +199,6 @@ class PhoneInput extends TextInput
      *
      * @default 'h-full w-full'
      *
-     * @param string|null $customContainer
      * @return $this
      */
     public function customContainer(?string $customContainer = 'h-full w-full'): static
@@ -226,7 +216,6 @@ class PhoneInput extends TextInput
      *
      * @default null
      *
-     * @param string|null $dropdownContainer
      * @return $this
      */
     public function dropdownContainer(?string $dropdownContainer = null): static
@@ -241,7 +230,6 @@ class PhoneInput extends TextInput
      *
      * @default empty []
      *
-     * @param array|null $excludeCountries
      * @return $this
      */
     public function excludeCountries(?array $excludeCountries = []): static
@@ -256,7 +244,6 @@ class PhoneInput extends TextInput
      *
      * @default true
      *
-     * @param bool $formatOnDisplay
      * @return $this
      */
     public function formatOnDisplay(bool $formatOnDisplay): static
@@ -271,7 +258,6 @@ class PhoneInput extends TextInput
      *
      * @default 86400 a day.
      *
-     * @param int $cachedGeoIpSeconds
      * @return $this
      */
     public function cachedGeoIpSeconds(int $cachedGeoIpSeconds = 86400): static
@@ -289,7 +275,6 @@ class PhoneInput extends TextInput
      * input already contains a number. If you leave initialCountry blank,
      * it will default to the first country in the list.
      *
-     * @param string|null $initialCountry
      * @return $this
      */
     public function initialCountry(?string $initialCountry): static
@@ -306,7 +291,6 @@ class PhoneInput extends TextInput
      *
      * @default 'ipinfo'
      *
-     * @param string|null $geoIpLookup
      * @return $this
      */
     public function geoIpLookup(?string $geoIpLookup = 'ipinfo'): static
@@ -330,7 +314,6 @@ class PhoneInput extends TextInput
      *
      * @default ''
      *
-     * @param string|null $hiddenInput
      * @return $this
      */
     public function hiddenInput(?string $hiddenInput = ''): static
@@ -345,7 +328,6 @@ class PhoneInput extends TextInput
      *
      * @default []
      *
-     * @param array $localizedCountries
      * @return $this
      */
     public function localizedCountries(array $localizedCountries = []): static
@@ -361,7 +343,6 @@ class PhoneInput extends TextInput
      *
      * @default false
      *
-     * @param bool $nationalMode
      * @return $this
      */
     public function nationalMode(bool $nationalMode = false): static
@@ -376,7 +357,6 @@ class PhoneInput extends TextInput
      *
      * @default null
      *
-     * @param array|null $onlyCountries
      * @return $this
      */
     public function onlyCountries(?array $onlyCountries = null): static
@@ -391,7 +371,7 @@ class PhoneInput extends TextInput
      *
      * @default MOBILE
      *
-     * @param string $placeholderNumberType
+     * @param  string  $placeholderNumberType
      * @return $this
      */
     public function placeholderNumberType(#[ExpectedValues(['FIXED_LINE_OR_MOBILE', 'FIXED_LINE', 'MOBILE', 'PAGER', 'PERSONAL_NUMBER', 'PREMIUM_RATE', 'SHARED_COST', 'TOLL_FREE', 'UAN', 'UNKNOWN', 'VOICEMAIL', 'VOIP'])] string $placeholderNumberType = 'MOBILE'): static
@@ -406,7 +386,7 @@ class PhoneInput extends TextInput
      *
      * @default ['EG', 'AE', 'US', 'GB']
      *
-     * @param array|null $preferredCountries
+     * @param  array|null  $preferredCountries
      * @return $this
      */
     public function preferredCountries(array $preferredCountries = ['EG', 'AE', 'US', 'GB']): static
@@ -424,7 +404,6 @@ class PhoneInput extends TextInput
      *
      * @default false
      *
-     * @param bool $separateDialCode
      * @return $this
      */
     public function separateDialCode(bool $separateDialCode = false): static
