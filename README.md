@@ -1,4 +1,4 @@
-# Provides a Phone Input field for the Filament Forms, works in Admin-Panel and Forntend-Forms
+# Provides a Phone Input field for the Filament V2-V3 Forms, works in Admin-Panel and Forntend-Forms
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/abanoubnassem/filament-phone-field.svg?style=flat-square)](https://packagist.org/packages/abanoubnassem/filament-phone-field)
 [![Total Downloads](https://img.shields.io/packagist/dt/abanoubnassem/filament-phone-field.svg?style=flat-square)](https://packagist.org/packages/abanoubnassem/filament-phone-field)
