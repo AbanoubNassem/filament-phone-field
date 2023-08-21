@@ -218,7 +218,7 @@ class PhoneInput extends TextInput
      *
      * @return $this
      */
-    public function dropdownContainer(?string $dropdownContainer = null): static
+    public function dropdownContainer(string $dropdownContainer = null): static
     {
         $this->dropdownContainer = $dropdownContainer;
 
@@ -359,7 +359,7 @@ class PhoneInput extends TextInput
      *
      * @return $this
      */
-    public function onlyCountries(?array $onlyCountries = null): static
+    public function onlyCountries(array $onlyCountries = null): static
     {
         $this->onlyCountries = $onlyCountries;
 
