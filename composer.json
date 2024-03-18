@@ -18,9 +18,9 @@
         }
     ],
     "require": {
-        "php": "^8.0|^8.1|^8.2",
-        "filament/forms": "^2.16|^3.0-stable",
-        "illuminate/contracts": "^9.0|^10.0",
+        "php": "^8.0|^8.1|^8.2|^8.3",
+        "filament/forms": "^2.16|^3.0-stable|^3.2.51",
+        "illuminate/contracts": "^9.0|^10.0|^11.0",
         "spatie/laravel-package-tools": "^1.13.0"
     },
     "require-dev": {
