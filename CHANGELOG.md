@@ -2,6 +2,10 @@
 
 All notable changes to `filament-phone-field` will be documented in this file.
 
+## v0.0.6 - 2024-03-18
+
+- Added Laravel 11 Support
+
 ## v0.0.5 - 2023-08-21
 
 ### What's Changed
