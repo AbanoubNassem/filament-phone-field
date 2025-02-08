@@ -17,7 +17,6 @@
     <script>
 
         window.initPhoneField = function (statePath) {
-            console.log('called');
             const input = document.getElementById(statePath) ?? document.querySelector(`[wire\\:model\\.defer="${statePath}"]`);
             const config = @js($getConfigurations());
 
@@ -51,7 +50,8 @@
             input.addEventListener("countrychange", function () {
 
                 if (input.value.length > 5) {
-                     @this.set(statePath, input.value, @if(method_exists($this, 'id')) false @else true @endif);
+                    @this.
+                    set(statePath, input.value, {{method_exists($this, 'id') ? 'true':'false'}});
                 }
             });
             if (config.initialCountry === 'auto' && input.value.length < 5) {
