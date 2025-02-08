@@ -2,6 +2,12 @@
 
 All notable changes to `filament-phone-field` will be documented in this file.
 
+## v0.0.7 - 2025-02-08
+
+- fix an issue with loading the input field
+
+closed #13 #16
+
 ## v0.0.6 - 2024-03-18
 
 - Added Laravel 11 Support
