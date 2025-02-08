@@ -164,7 +164,6 @@ class PhoneInput extends TextInput
      *
      * @default 'polite'
      *
-     * @param  string  $autoPlaceholder
      * @return $this
      */
     public function autoPlaceholder(#[ExpectedValues(['off', 'polite', 'aggressive'])] string $autoPlaceholder): static
@@ -218,7 +217,7 @@ class PhoneInput extends TextInput
      *
      * @return $this
      */
-    public function dropdownContainer(string $dropdownContainer = null): static
+    public function dropdownContainer(?string $dropdownContainer = null): static
     {
         $this->dropdownContainer = $dropdownContainer;
 
@@ -359,7 +358,7 @@ class PhoneInput extends TextInput
      *
      * @return $this
      */
-    public function onlyCountries(array $onlyCountries = null): static
+    public function onlyCountries(?array $onlyCountries = null): static
     {
         $this->onlyCountries = $onlyCountries;
 
@@ -371,7 +370,6 @@ class PhoneInput extends TextInput
      *
      * @default MOBILE
      *
-     * @param  string  $placeholderNumberType
      * @return $this
      */
     public function placeholderNumberType(#[ExpectedValues(['FIXED_LINE_OR_MOBILE', 'FIXED_LINE', 'MOBILE', 'PAGER', 'PERSONAL_NUMBER', 'PREMIUM_RATE', 'SHARED_COST', 'TOLL_FREE', 'UAN', 'UNKNOWN', 'VOICEMAIL', 'VOIP'])] string $placeholderNumberType = 'MOBILE'): static

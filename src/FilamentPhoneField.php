@@ -2,6 +2,4 @@
 
 namespace AbanoubNassem\FilamentPhoneField;
 
-class FilamentPhoneField
-{
-}
+class FilamentPhoneField {}
